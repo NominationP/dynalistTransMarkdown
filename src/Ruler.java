@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Ruler{
-    public static final Map<String,String> rule;
+    protected static final Map<String,String> characterTransformRule;
     static {
         Map<String, String> map = new HashMap<>();
         map.put("0","#");
@@ -13,6 +13,8 @@ public class Ruler{
         map.put("!", "!");
         map.put("#", "@");
         map.put(">", "> ");
-        rule = Collections.unmodifiableMap(map);
+        characterTransformRule = Collections.unmodifiableMap(map);
     }
+
+    public static final [] IMMUTABLE = {"```"};
 }
