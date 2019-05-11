@@ -1,6 +1,7 @@
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Ruler{
     protected static final Map<String,String> characterTransformRule;
@@ -17,4 +18,5 @@ public class Ruler{
     }
 
     public static final [] IMMUTABLE = {"```"};
+    public static final Set<String> MY_SET = new HashSet<>(Arrays.asList(SET_VALUES));
 }
