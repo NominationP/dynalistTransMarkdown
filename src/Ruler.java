@@ -18,5 +18,5 @@ public class Ruler{
     }
 
     public static final [] IMMUTABLE = {"```"};
-    public static final Set<String> MY_SET = new HashSet<>(Arrays.asList(SET_VALUES));
+    public static final Set<Stridng> MY_SET = new HashSet<>(Arrays.asList(SET_VALUES));
 }
