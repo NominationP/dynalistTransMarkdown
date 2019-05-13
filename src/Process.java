@@ -1,25 +1,30 @@
 import java.util.Set;
 
 public class Process {
-    private boolean isChangeState;
-    private Set<String> 
+    private boolean changeState;
+    private Set<String> checkChangeDetail;
 
     public Process() {
-        isChangeState = true;
+        changeState = true;
     }
 
     public String getTransByRuler(String specialCharacter){
-        if(isChangeState(specialCharacter) && Ruler.characterTransformRule.containsKey(specialCharacter)){
+
+        if(getChangeState(specialCharacter) && Ruler.characterTransformRule.containsKey(specialCharacter)){
             return Ruler.characterTransformRule.get(specialCharacter);
         }
         return specialCharacter;
     }
 
-    private Boolean isChangeState(String specialCharacter){
+    private Boolean getChangeState(String specialCharacter){
         if(Ruler.CHANGESET.contains(specialCharacter)){
-            return !isChangeState;
+            if(!checkChangeDetail.contains(specialCharacter)){
+                checkChangeDetail.add(specialCharacter);
+                changeState = false;
+            }
+            checkChangeDetail.remove(specialCharacter);
+            changeState = true;
         }
-        return true;
+        return changeState;
     }
-
 }
