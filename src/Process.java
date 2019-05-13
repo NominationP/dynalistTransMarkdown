@@ -1,14 +1,25 @@
+import java.util.Set;
+
 public class Process {
     private boolean isChangeState;
+    private Set<String> 
+
+    public Process() {
+        isChangeState = true;
+    }
+
     public String getTransByRuler(String specialCharacter){
-        if(isChangeState && Ruler.characterTransformRule.containsKey(specialCharacter)){
+        if(isChangeState(specialCharacter) && Ruler.characterTransformRule.containsKey(specialCharacter)){
             return Ruler.characterTransformRule.get(specialCharacter);
         }
         return specialCharacter;
     }
 
-    public Boolean isChangeState(){
-        Ruler.IMMUTABLE.
+    private Boolean isChangeState(String specialCharacter){
+        if(Ruler.CHANGESET.contains(specialCharacter)){
+            return !isChangeState;
+        }
+        return true;
     }
 
 }

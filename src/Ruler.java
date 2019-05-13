@@ -1,7 +1,4 @@
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Ruler{
     protected static final Map<String,String> characterTransformRule;
@@ -17,6 +14,6 @@ public class Ruler{
         characterTransformRule = Collections.unmodifiableMap(map);
     }
 
-    public static final [] IMMUTABLE = {"```"};
-    public static final Set<Stridng> MY_SET = new HashSet<>(Arrays.asList(SET_VALUES));
+    public static final Set<String> CHANGESET =
+            new HashSet<String>(Collections.singletonList("```"));
 }
