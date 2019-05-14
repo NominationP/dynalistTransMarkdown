@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Set;
 
 public class Process {
@@ -6,6 +7,7 @@ public class Process {
 
     public Process() {
         changeState = true;
+        checkChangeDetail = new HashSet<>();
     }
 
     public String getTransByRuler(String specialCharacter){
@@ -21,9 +23,10 @@ public class Process {
             if(!checkChangeDetail.contains(specialCharacter)){
                 checkChangeDetail.add(specialCharacter);
                 changeState = false;
+            }else{
+                checkChangeDetail.remove(specialCharacter);
+                changeState = true;
             }
-            checkChangeDetail.remove(specialCharacter);
-            changeState = true;
         }
         return changeState;
     }
