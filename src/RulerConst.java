@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Ruler{
+public class RulerConst {
     protected static final Map<String,String> characterTransformRule;
     static {
         Map<String, String> map = new HashMap<>();

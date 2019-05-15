@@ -4,7 +4,7 @@ public class ProcessTest {
 
     @org.junit.Test
     public void getTransByRuler() {
-        Process process = new Process();
+        RulerManager process = new RulerManager();
         assertEquals("#",process.getTransByRuler("0"));
         assertEquals("##",process.getTransByRuler("4"));
         assertEquals("-",process.getTransByRuler("8"));

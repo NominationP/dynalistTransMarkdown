@@ -1,25 +1,25 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Process {
+class RulerManager {
     private boolean changeState;
     private Set<String> checkChangeDetail;
 
-    public Process() {
+    RulerManager() {
         changeState = true;
         checkChangeDetail = new HashSet<>();
     }
 
-    public String getTransByRuler(String specialCharacter){
+    String getTransByRuler(String specialCharacter){
 
-        if(getChangeState(specialCharacter) && Ruler.characterTransformRule.containsKey(specialCharacter)){
-            return Ruler.characterTransformRule.get(specialCharacter);
+        if(getChangeState(specialCharacter) && RulerConst.characterTransformRule.containsKey(specialCharacter)){
+            return RulerConst.characterTransformRule.get(specialCharacter);
         }
         return specialCharacter;
     }
 
     private Boolean getChangeState(String specialCharacter){
-        if(Ruler.CHANGESET.contains(specialCharacter)){
+        if(RulerConst.CHANGESET.contains(specialCharacter)){
             if(!checkChangeDetail.contains(specialCharacter)){
                 checkChangeDetail.add(specialCharacter);
                 changeState = false;
