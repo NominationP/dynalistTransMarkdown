@@ -11,7 +11,6 @@ class RulerManager {
     }
 
     String getTransByRuler(String specialCharacter){
-
         if(getChangeState(specialCharacter) && RulerConst.characterTransformRule.containsKey(specialCharacter)){
             return RulerConst.characterTransformRule.get(specialCharacter);
         }

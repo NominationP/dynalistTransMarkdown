@@ -5,8 +5,11 @@ public class TransformFile {
         FileInputStream fileInputStream = new FileInputStream(path);
         BufferedReader br = new BufferedReader(new InputStreamReader(fileInputStream));
         String strLine;
+        RulerManager rulerManager = new RulerManager();
         while((strLine = br.readLine())!=null){
-            System.out.println(strLine);
+            String line = rulerManager.getTransByRuler(strLine);
+
+            System.out.println(line);
         }
         fileInputStream.close();
     }
