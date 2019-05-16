@@ -10,6 +10,10 @@ class RulerManager {
         checkChangeDetail = new HashSet<>();
     }
 
+    String getFeatrueChar(String line){
+        
+    }
+
     String getTransByRuler(String specialCharacter){
         if(getChangeState(specialCharacter) && RulerConst.characterTransformRule.containsKey(specialCharacter)){
             return RulerConst.characterTransformRule.get(specialCharacter);
