@@ -11,7 +11,16 @@ class RulerManager {
     }
 
     String getFeatrueChar(String line){
+        int spaceCount = 0;
+        for (char c : line.toCharArray()) {
+            if (c == ' ') {
+                spaceCount++;
+            }else{
+                break;
+            }
+        }
         
+
     }
 
     String getTransByRuler(String specialCharacter){
