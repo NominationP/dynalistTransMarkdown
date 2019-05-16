@@ -4,7 +4,7 @@ public class RulerConst {
     protected static final Map<String,String> characterTransformRule;
     static {
         Map<String, String> map = new HashMap<>();
-        map.put("0","#");
+//        map.put("0","#");
         map.put("4", "##");
         map.put("8", "-");
 //        map.put("`", "\n```\n");

@@ -7,8 +7,7 @@ public class TransformFile {
         String strLine;
         RulerManager rulerManager = new RulerManager();
         while((strLine = br.readLine())!=null){
-            String line = rulerManager.getTransByRuler(strLine);
-
+            String line = rulerManager.transform(strLine);
             System.out.println(line);
         }
         fileInputStream.close();
