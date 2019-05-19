@@ -5,7 +5,7 @@
             之前都是用`C++`刷的题,现在用`java`
             写了N遍之后才发现`ListNode`容易丢,不改变的遍历一个`list`需要实例化一个遍历指针 :(
             大神 无比精妙
-            ```
+```
 public class Solution {
 ##public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 -Stack<Integer>  s1 = new Stack<Integer> ();
@@ -87,7 +87,7 @@ public class Solution3Stack {
 @@R
 -[Safe Object Publication in Java](https://vlkan.com/blog/post/201##/02/1##/java-safe-publication/)
             Safe Construction Practices
-            ```
+```
 public class ThisEscape {
 ##public ThisEscape(EventSource source) {
 -source.registerListener(
@@ -109,94 +109,3 @@ public class SafeListener {
 
 @@private SafeListener() {
 -listener = new EventListener() {
-            public void onEvent(Event event) {
-                doSomething(event);
-            }
--}
-@@}
-
-@@public static SafeListener newInstance(EventSource source) {
--SafeListener safe = new SafeListener();
--source.registerListener(safe.listener);
--return safe;
-@@}
-}
-```
-            Lazy Initialization
-                code
-                ```
-@NotThreadSafe
-public class UnsafeLazyInitialization {
-##private static Resource resource;
-
-##public static Resource getInstance() {
--if (resource == null)
-            resource = new Resource();
--return resource;
-##}
-}
-```
-
-                defects
-                    inefficiency of possibly creating the Resource more than once
-                    another thread could observe a reference to a partially constructed Resource.
-                update code
-```
-@ThreadSafe
-public class SafeLazyInitialization {
-@@private static Resource resource;
-
-@@public synchronized static Resource getInstance() {
--if (resource == null)
-            resource = new Resource();
--return resource;
-@@}
-}
-```
-                jvm - constured - static
-                    The treatment of static fields with initializers (or fields whose value is initialized in a static initialization block [JPL 2.2.1 and 2.5.3]) is somewhat special and offers additional thread-safety guarantees. Static initializers are run by the JVM at class initialization time, after class loading but before the class is used by any thread. Because the JVM acquires a lock during initialization [JSL 12.##.2] and this lock is acquired by each thread at least once to ensure that the class has been loaded, memory writes made during static initialization are automatically visible to all threads. Thus statically initialized objects require no explicit synchronization either during construction or when being referenced. However, this applies only to the as-constructed state – if the object is mutable, synchronization is still required by both readers and writers to make subsequent modifications visible to avoid data corruption.
-                update code
-                ```
-@ThreadSafe
-public class EagerInitialization {
-##private static Resource resource = new Resource();
-
-##public static Resource getResource() { return resource; }
-}
-```
-                update code
-```
-@ThreadSafe
-public class ResourceFactory {
-@@private static class ResourceHolder {
--public static Resource resource = new Resource();
-@@}
-
-@@public static Resource getResource() {
--return ResourceHolder.resource;
-@@}
-}
-```
-                static initializer
-                    Here the JVM defers initializing the ResourceHolder class until it is actually used [JLS 12.##.1], and because the Resource is initialized with a static initializer, no additional synchronization is needed. The first call to getResource by any thread causes ResourceHolder to be loaded and initialized, at which time the initialization of the Resource happens through the static initializer.
--[Java 并发编程：核心理论](https://www.cnblogs.com/paddix/p/537##-10.html)
-            共享性
-                数据共享性是线程安全的主要原因之一
-            互斥性
-                Java 中提供多种机制来保证互斥性，最简单的方式是使用Synchronized。
-            原子性
-            可见性
-                JVM的内存模型
-            有序性
-                为了提高性能，编译器和处理器可能会对指令做重排序
-##T
--记几个常用linux命名
--```
-ctrl+u ==>  clear line
-ctrl+w ==>  clear word
-ctrl+a ==>  cursor begin
-ctrl+e ==>  cursor end
-```
-@@S
--最近在学水滴英语,之前只读过小王子,现在读了爱丽丝梦游记和彼得潘,有点点感受到英语的博大精深了,很多句子的意思要知道才能知道,推敲不出来,比如`Blow someone away`,`给某人留下了深刻、不可磨灭的印象` > > > >  语气远远大于 > > > >  `impress`
--我就是渣渣,将近##周了,渣渣的第二篇才能发出来

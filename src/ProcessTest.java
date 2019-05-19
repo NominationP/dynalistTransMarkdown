@@ -28,13 +28,14 @@ public class ProcessTest {
     @Test
     public void getTransform() {
         RulerManager rulerManager = new RulerManager();
-//        assertEquals("4",rulerManager.transform("4"));
+        assertEquals("##",rulerManager.transform("4"));
         assertEquals("```",rulerManager.transform("    ```"));
+        assertEquals("#",rulerManager.transform("#"));
         assertEquals("```",rulerManager.transform("     ```"));
         assertEquals("```",rulerManager.transform("            ```"));
         assertEquals("#",rulerManager.transform("#"));
         assertEquals("8",rulerManager.transform("8"));
         assertEquals("```",rulerManager.transform("```"));
-        assertEquals("-",rulerManager.transform("8"));
+        assertEquals("8",rulerManager.transform("8"));
     }
 }

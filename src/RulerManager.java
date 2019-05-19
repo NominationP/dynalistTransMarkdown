@@ -17,7 +17,8 @@ class RulerManager {
 //
 //        }
         //such as '    ```'
-        if (isChangeChar(line) && getChangeState(line)) {
+        if (isChangeChar(line)) {
+            getChangeState(line);
             return line.trim();
         }
 
@@ -35,9 +36,10 @@ class RulerManager {
             line = spaceCount + line.trim();
             line = line.replaceFirst(String.valueOf(spaceCount), getTransByRuler(String.valueOf(spaceCount)));
         }
-        for (Map.Entry<String, String> sc :
-                RulerConst.characterTransformRule.entrySet()) {
-            line = line.replace(sc.getKey(), sc.getValue());
+        for (Map.Entry<String, String> sc : RulerConst.characterTransformRule.entrySet()) {
+            if(changeState){
+                line = line.replace(sc.getKey(), sc.getValue());
+            }
         }
         return line;
     }
