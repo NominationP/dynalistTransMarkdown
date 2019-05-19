@@ -5,9 +5,9 @@
             之前都是用`C++`刷的题,现在用`java`
             写了N遍之后才发现`ListNode`容易丢,不改变的遍历一个`list`需要实例化一个遍历指针 :(
             大神 无比精妙
-```
+            ```
 public class Solution {
-@@public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+##public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 -Stack<Integer>  s1 = new Stack<Integer> ();
 -Stack<Integer>  s2 = new Stack<Integer> ();
 
@@ -33,7 +33,7 @@ public class Solution {
 -}
 
 -return list.val == 0 ? list.next : list;
-@@}
+##}
 }
 ```
             我的<stack> ..拖泥带水
@@ -87,16 +87,16 @@ public class Solution3Stack {
 @@R
 -[Safe Object Publication in Java](https://vlkan.com/blog/post/201##/02/1##/java-safe-publication/)
             Safe Construction Practices
-```
+            ```
 public class ThisEscape {
-@@public ThisEscape(EventSource source) {
+##public ThisEscape(EventSource source) {
 -source.registerListener(
             new EventListener() {
                 public void onEvent(Event event) {
                     doSomething(event);
                 }
             });
-@@}
+##}
 }
 ```
 Here, **when ThisEscape publishes the EventListener, it implicitly publishes the enclosing ThisEscape instance** as well, because inner class instances contain a hidden reference to the enclosing instance.
@@ -124,16 +124,16 @@ public class SafeListener {
 ```
             Lazy Initialization
                 code
-```
+                ```
 @NotThreadSafe
 public class UnsafeLazyInitialization {
-@@private static Resource resource;
+##private static Resource resource;
 
-@@public static Resource getInstance() {
+##public static Resource getInstance() {
 -if (resource == null)
             resource = new Resource();
 -return resource;
-@@}
+##}
 }
 ```
 
@@ -156,12 +156,12 @@ public class SafeLazyInitialization {
                 jvm - constured - static
                     The treatment of static fields with initializers (or fields whose value is initialized in a static initialization block [JPL 2.2.1 and 2.5.3]) is somewhat special and offers additional thread-safety guarantees. Static initializers are run by the JVM at class initialization time, after class loading but before the class is used by any thread. Because the JVM acquires a lock during initialization [JSL 12.##.2] and this lock is acquired by each thread at least once to ensure that the class has been loaded, memory writes made during static initialization are automatically visible to all threads. Thus statically initialized objects require no explicit synchronization either during construction or when being referenced. However, this applies only to the as-constructed state – if the object is mutable, synchronization is still required by both readers and writers to make subsequent modifications visible to avoid data corruption.
                 update code
-```
+                ```
 @ThreadSafe
 public class EagerInitialization {
-@@private static Resource resource = new Resource();
+##private static Resource resource = new Resource();
 
-@@public static Resource getResource() { return resource; }
+##public static Resource getResource() { return resource; }
 }
 ```
                 update code
@@ -189,9 +189,9 @@ public class ResourceFactory {
                 JVM的内存模型
             有序性
                 为了提高性能，编译器和处理器可能会对指令做重排序
-@@T
+##T
 -记几个常用linux命名
-```
+-```
 ctrl+u ==>  clear line
 ctrl+w ==>  clear word
 ctrl+a ==>  cursor begin
